@@ -1,0 +1,34 @@
+# Pillar settings for the windows-update-agent formula correspond to registry
+# keys found in this technet article:
+# - https://technet.microsoft.com/en-us/library/Dd939844(v=WS.10).aspx
+# The formula supports all keys under these subkeys:
+# - HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate
+# - HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU
+
+# NOTE: Settings that are not present in pillar, or that have no value (''),
+# will have the corresponding registry key removed, which ensures Windows uses
+# the default configuration for those registry settings.
+
+windows-update-agent:
+  AcceptTrustedPublisherCerts: ''
+  DisableWindowsUpdateAccess: ''
+  ElevateNonAdmins: ''
+  TargetGroup: ''
+  TargetGroupEnabled: ''
+  WUServer: ''
+  WUStatusServer: ''
+  AUOptions: ''
+  AutoInstallMinorUpdates: ''
+  DetectionFrequency: ''
+  DetectionFrequencyEnabled: ''
+  NoAutoRebootWithLoggedOnUsers: ''
+  NoAutoUpdate: ''
+  RebootRelaunchTimeout: ''
+  RebootRelaunchTimeoutEnabled: ''
+  RebootWarningTimeout: ''
+  RebootWarningTimeoutEnabled: ''
+  RescheduleWaitTime: ''
+  RescheduleWaitTimeEnabled: ''
+  ScheduledInstallDay: ''
+  ScheduledInstallTime: ''
+  UseWUServer: ''
