@@ -1,8 +1,11 @@
 {%- from "windows-update-agent/map.jinja" import wua with context %}
 
 # Loop through the data model, creating `reg.present` states for any key with
-# a defined value, and `reg.absent` states for any key that is missing or that
-# has an empty value.
+# a defined value. If `remove-undefined-keys` is `True`, also create 
+# `reg.absent` states for any key that is missing or that has an empty value.
+{%- set remove_undefined_keys = salt['pillar.get'](
+    'windows-update-agent:remove-undefined-keys', 
+    False) %}
 
 {%- for subkey,keys in wua.items() %}
     {%- for key,settings in keys.items() %}
@@ -13,7 +16,7 @@ wua_reg_{{ subkey }}_{{ key }}:
     - value: {{ settings.value }}
     - vtype: {{ settings.vtype }}
     - reflection: False
-{%- else %}
+{%- elif remove_undefined_keys %}
 wua_reg_{{ subkey }}_{{ key }}:
   reg.absent:
     - name: {{ settings.name }}
