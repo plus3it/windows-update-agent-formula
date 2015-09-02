@@ -31,8 +31,9 @@ wua_reg_{{ subkey }}_{{ key }}:
 wua_service:
   service.running:
     - name: wuauserv
-
+    - onchanches_in:
+      - cmd: wua_reset
+      
 wua_reset:
   cmd.run:
     - name: 'wuauclt.exe /resetauthorization /detectnow'
-    - order: 'last'
