@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/plus3it/windows-update-agent-formula.svg)](https://travis-ci.org/plus3it/windows-update-agent-formula)
+
 # windows-update-agent-formula
 Salt formula to manage the configuration of the Windows Update Agent
 
