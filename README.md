@@ -23,7 +23,7 @@ This formula uses pillar to configure all the relevant registry entries. If no
 pillar settings are configured, then the formula by default will do nothing.
 
 
-### windows-update-agent:remove-undefined-keys
+### windows-update-agent:lookup:remove-undefined-keys
 
 If this setting is set to `True`, then the formula will remove any registry
 entry that is either not present in pillar or that is undefined (`''`). This
@@ -36,11 +36,12 @@ key(s).
 
 ```
 windows-update-agent:
-  remove-undefined-keys: True
+  lookup:
+    remove-undefined-keys: True
 ```
 
 
-### windows-update-agent:registry
+### windows-update-agent:lookup:registry
 
 This is a dictionary of all the registry keys and subkeys that can be
 configured by this formula. Detailed descriptions of the registry entries can
@@ -55,35 +56,36 @@ To remove undefined keys, see the configuration setting [remove-undefined-keys]
 
 ```
 windows-update-agent:
-  registry:
-    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate':
-      AcceptTrustedPublisherCerts: ''
-      DisableWindowsUpdateAccess: ''
-      ElevateNonAdmins: ''
-      TargetGroup: ''
-      TargetGroupEnabled: ''
-      WUServer: 'https://wsus.example.com'
-      WUStatusServer: 'https://wsus.example.com'
-    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer':
-      DisableWindowsUpdateAccess: ''
-    'HKEY_LOCAL_MACHINE\SYSTEM\Internet Communication Management\Internet Communication':
-      NoWindowsUpdate: ''
-    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate':
-      DisableWindowsUpdateAccess: ''
-    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU':
-      AUOptions: ''
-      AutoInstallMinorUpdates: ''
-      DetectionFrequency: ''
-      DetectionFrequencyEnabled: ''
-      NoAutoRebootWithLoggedOnUsers: ''
-      NoAutoUpdate: ''
-      RebootRelaunchTimeout: ''
-      RebootRelaunchTimeoutEnabled: ''
-      RebootWarningTimeout: ''
-      RebootWarningTimeoutEnabled: ''
-      RescheduleWaitTime: ''
-      RescheduleWaitTimeEnabled: ''
-      ScheduledInstallDay: ''
-      ScheduledInstallTime: ''
-      UseWUServer: '1'
+  lookup:
+    registry:
+      'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate':
+        AcceptTrustedPublisherCerts: ''
+        DisableWindowsUpdateAccess: ''
+        ElevateNonAdmins: ''
+        TargetGroup: ''
+        TargetGroupEnabled: ''
+        WUServer: 'https://wsus.example.com'
+        WUStatusServer: 'https://wsus.example.com'
+      'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer':
+        DisableWindowsUpdateAccess: ''
+      'HKEY_LOCAL_MACHINE\SYSTEM\Internet Communication Management\Internet Communication':
+        NoWindowsUpdate: ''
+      'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate':
+        DisableWindowsUpdateAccess: ''
+      'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU':
+        AUOptions: ''
+        AutoInstallMinorUpdates: ''
+        DetectionFrequency: ''
+        DetectionFrequencyEnabled: ''
+        NoAutoRebootWithLoggedOnUsers: ''
+        NoAutoUpdate: ''
+        RebootRelaunchTimeout: ''
+        RebootRelaunchTimeoutEnabled: ''
+        RebootWarningTimeout: ''
+        RebootWarningTimeoutEnabled: ''
+        RescheduleWaitTime: ''
+        RescheduleWaitTimeEnabled: ''
+        ScheduledInstallDay: ''
+        ScheduledInstallTime: ''
+        UseWUServer: '1'
 ```

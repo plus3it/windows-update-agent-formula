@@ -4,7 +4,7 @@
 # defined vdata. If `remove-undefined-keys` is `True`, also create `reg.absent`
 # states for any key that is missing or that has empty vdata.
 {%- set remove_undefined_keys = salt['pillar.get'](
-    'windows-update-agent:remove-undefined-keys',
+    'windows-update-agent:lookup:remove-undefined-keys',
     False) %}
 
 {%- for key,values in wua.items() %}

@@ -64,7 +64,7 @@
 
 # Loop through all keys in windows-update-agent pillar
 # Select the corresponding key in `wua` and update its `vdata` key
-{%- for key,values in salt['pillar.get']('windows-update-agent:registry', {}).items() %}
+{%- for key,values in salt['pillar.get']('windows-update-agent:lookup:registry', {}).items() %}
     {%- for vname,vdata in values.items() %}
         {%- do wua[key][vname].update({
             'vdata' : vdata

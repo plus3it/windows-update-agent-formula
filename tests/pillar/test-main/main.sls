@@ -10,40 +10,41 @@
 
 
 windows-update-agent:
-  # Set `remove-undefined-keys` to `True` to remove any Windows Update
-  # registry keys that are not present in pillar, or that have no value ('').
-  # Absent keys resume the default Windows behaviour for that setting.
-  remove-undefined-keys: False
+  lookup:
+    # Set `remove-undefined-keys` to `True` to remove any Windows Update
+    # registry keys that are not present in pillar, or that have no value ('').
+    # Absent keys resume the default Windows behaviour for that setting.
+    remove-undefined-keys: False
 
-  # Dictionary of Windows Update registry keys and values
-  registry:
-    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate':
-      AcceptTrustedPublisherCerts: ''
-      DisableWindowsUpdateAccess: ''
-      ElevateNonAdmins: ''
-      TargetGroup: ''
-      TargetGroupEnabled: ''
-      WUServer: 'https://wsus.example.com'
-      WUStatusServer: 'https://wsus.example.com'
-    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer':
-      DisableWindowsUpdateAccess: ''
-    'HKEY_LOCAL_MACHINE\SYSTEM\Internet Communication Management\Internet Communication':
-      NoWindowsUpdate: ''
-    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate':
-      DisableWindowsUpdateAccess: ''
-    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU':
-      AUOptions: ''
-      AutoInstallMinorUpdates: ''
-      DetectionFrequency: ''
-      DetectionFrequencyEnabled: ''
-      NoAutoRebootWithLoggedOnUsers: ''
-      NoAutoUpdate: ''
-      RebootRelaunchTimeout: ''
-      RebootRelaunchTimeoutEnabled: ''
-      RebootWarningTimeout: ''
-      RebootWarningTimeoutEnabled: ''
-      RescheduleWaitTime: ''
-      RescheduleWaitTimeEnabled: ''
-      ScheduledInstallDay: ''
-      ScheduledInstallTime: ''
-      UseWUServer: '1'
+    # Dictionary of Windows Update registry keys and values
+    registry:
+      'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate':
+        AcceptTrustedPublisherCerts: ''
+        DisableWindowsUpdateAccess: ''
+        ElevateNonAdmins: ''
+        TargetGroup: ''
+        TargetGroupEnabled: ''
+        WUServer: 'https://wsus.example.com'
+        WUStatusServer: 'https://wsus.example.com'
+      'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer':
+        DisableWindowsUpdateAccess: ''
+      'HKEY_LOCAL_MACHINE\SYSTEM\Internet Communication Management\Internet Communication':
+        NoWindowsUpdate: ''
+      'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate':
+        DisableWindowsUpdateAccess: ''
+      'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU':
+        AUOptions: ''
+        AutoInstallMinorUpdates: ''
+        DetectionFrequency: ''
+        DetectionFrequencyEnabled: ''
+        NoAutoRebootWithLoggedOnUsers: ''
+        NoAutoUpdate: ''
+        RebootRelaunchTimeout: ''
+        RebootRelaunchTimeoutEnabled: ''
+        RebootWarningTimeout: ''
+        RebootWarningTimeoutEnabled: ''
+        RescheduleWaitTime: ''
+        RescheduleWaitTimeEnabled: ''
+        ScheduledInstallDay: ''
+        ScheduledInstallTime: ''
+        UseWUServer: '1'
