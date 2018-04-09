@@ -7,21 +7,21 @@
     'windows-update-agent:remove-undefined-keys',
     False) %}
 
-{%- for subkey,keys in wua.items() %}
-    {%- for vname,settings in keys.items() %}
+{%- for key,values in wua.items() %}
+    {%- for vname,settings in values.items() %}
 {%- if settings.get('vdata', '') %}
-wua_reg_{{ subkey }}_{{ vname }}:
+wua_reg_{{ key }}_{{ vname }}:
   reg.present:
-    - name: {{ settings.name }}
+    - name: {{ key }}
     - vname: {{ vname }}
     - vdata: {{ settings.vdata }}
     - vtype: {{ settings.vtype }}
     - watch_in:
       - service: wua_service
 {%- elif remove_undefined_keys %}
-wua_reg_{{ subkey }}_{{ vname }}:
+wua_reg_{{ key }}_{{ vname }}:
   reg.absent:
-    - name: {{ settings.name }}
+    - name: {{ key }}
     - vname: {{ vname }}
     - watch_in:
       - service: wua_service

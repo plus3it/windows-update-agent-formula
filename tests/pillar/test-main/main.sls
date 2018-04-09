@@ -17,7 +17,7 @@ windows-update-agent:
 
   # Dictionary of Windows Update registry keys and values
   registry:
-    hklm-windows-update:
+    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate':
       AcceptTrustedPublisherCerts: ''
       DisableWindowsUpdateAccess: ''
       ElevateNonAdmins: ''
@@ -25,13 +25,13 @@ windows-update-agent:
       TargetGroupEnabled: ''
       WUServer: 'https://wsus.example.com'
       WUStatusServer: 'https://wsus.example.com'
-    hkcu-explorer:
+    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer':
       DisableWindowsUpdateAccess: ''
-    hklm-internet-communication:
+    'HKEY_LOCAL_MACHINE\SYSTEM\Internet Communication Management\Internet Communication':
       NoWindowsUpdate: ''
-    hkcu-windows-update:
+    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate':
       DisableWindowsUpdateAccess: ''
-    hklm-windows-update-au:
+    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU':
       AUOptions: ''
       AutoInstallMinorUpdates: ''
       DetectionFrequency: ''

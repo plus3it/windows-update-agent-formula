@@ -7,7 +7,7 @@ Salt formula to manage the configuration of the Windows Update Agent
 
 ## Available States
 
-- [windows-update-agent](#windows-update-agent)
+-   [windows-update-agent](#windows-update-agent)
 
 
 ### windows-update-agent
@@ -56,7 +56,7 @@ To remove undefined keys, see the configuration setting [remove-undefined-keys]
 ```
 windows-update-agent:
   registry:
-    hklm-windows-update:
+    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate':
       AcceptTrustedPublisherCerts: ''
       DisableWindowsUpdateAccess: ''
       ElevateNonAdmins: ''
@@ -64,13 +64,13 @@ windows-update-agent:
       TargetGroupEnabled: ''
       WUServer: 'https://wsus.example.com'
       WUStatusServer: 'https://wsus.example.com'
-    hkcu-explorer:
+    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer':
       DisableWindowsUpdateAccess: ''
-    hklm-internet-communication:
+    'HKEY_LOCAL_MACHINE\SYSTEM\Internet Communication Management\Internet Communication':
       NoWindowsUpdate: ''
-    hkcu-windows-update:
+    'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate':
       DisableWindowsUpdateAccess: ''
-    hklm-windows-update-au:
+    'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU':
       AUOptions: ''
       AutoInstallMinorUpdates: ''
       DetectionFrequency: ''
