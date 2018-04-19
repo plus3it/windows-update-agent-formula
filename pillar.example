@@ -32,6 +32,8 @@ windows-update-agent:
     hkcu-windows-update:
       DisableWindowsUpdateAccess: ''
     hklm-windows-update-au:
+      AlwaysAutoRebootAtScheduledTime: ''
+      AlwaysAutoRebootAtScheduledTimeMinutes: ''
       AUOptions: ''
       AutoInstallMinorUpdates: ''
       DetectionFrequency: ''

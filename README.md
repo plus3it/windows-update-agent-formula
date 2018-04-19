@@ -73,6 +73,8 @@ windows-update-agent:
       'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate':
         DisableWindowsUpdateAccess: ''
       'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU':
+        AlwaysAutoRebootAtScheduledTime: ''
+        AlwaysAutoRebootAtScheduledTimeMinutes: ''
         AUOptions: ''
         AutoInstallMinorUpdates: ''
         DetectionFrequency: ''
