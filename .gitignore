@@ -9,10 +9,17 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Windows Installer files
-#*.cab
-#*.msi
-#*.msm
-#*.msp
+*.cab
+*.msi
+*.msm
+*.msp
+
+# tardigrade-ci
+.tardigrade-ci
+tardigrade-ci/
+
+# Windows shortcuts
+*.lnk
 
 # =========================
 # Operating System Files
@@ -24,9 +31,6 @@ $RECYCLE.BIN/
 .DS_Store
 .AppleDouble
 .LSOverride
-
-# Icon must end with two \r
-Icon
 
 # Thumbnails
 ._*
@@ -42,9 +46,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#===============
-#Personal git ignore settings
-#===============
 
-#pycharm dirs
-.idea
+# =========================
+# My local exclusions
+# =========================
+
+*.zip
+*.bundle
